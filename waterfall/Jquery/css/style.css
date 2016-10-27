@@ -1,0 +1,28 @@
+* {
+	padding: 0;
+	margin:0;
+}
+h2 {
+	text-align: center;
+	color: #009a61;
+}
+.main {
+	position: relative;
+}
+.box {
+	float: left;
+	/*box之间的距离通过padding来设置。因为通过js来设置的话，offsetTop,
+	是不包括margin的，所以通过padding，*/
+	padding: 15px 0 0 15px;
+}
+.box-pic {
+
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	box-shadow: 0 0 5px #ccc;
+}
+.box-pic img {
+	width: 165px;
+	height: auto;
+}
