@@ -27,7 +27,6 @@ $(document).ready(function() {
 			// 如果达到判断条件，就从后台加载数据
 			$.each(dataInt.data, function(index, val) {
 				 $('<div class="box"><div class="box-pic"><img src="images/'+val.src+'" /></div></div>').appendTo(fragemment);
-				 console.log('cc');
 			});		
 			$('#main').append(fragemment);
 			waterfall();

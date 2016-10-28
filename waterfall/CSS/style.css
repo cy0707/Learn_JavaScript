@@ -1,0 +1,30 @@
+/*利用css3的column属性*/
+* {
+	padding: 0;
+	margin:0;
+}
+h2 {
+	text-align: center;
+	color: #009a61;
+}
+.main {
+	-webkit-column-width: 202px;
+	-moz-column-width: 202px;
+	-ms-column-width: 202px;
+	-o-column-width: 202px;
+}
+.box {
+	padding: 10px 0 0 15px;
+}
+.box-pic {
+	width: 165px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	box-shadow: 0 0 5px #ccc;
+}
+.box-pic img {
+	display: block;
+	width: 165px;
+	height: auto;
+}
