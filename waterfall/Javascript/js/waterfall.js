@@ -96,6 +96,7 @@ function getByClass(parent, className) {
 		if (oElements[i].className == className) {
 			boxArr.push(oElements[i]);
 		}
+		// 如果有多个class的，应该这样做
 	}
 	return boxArr;
 }
