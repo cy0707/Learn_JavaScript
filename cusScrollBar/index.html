@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义滚动条</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	<!-- 容器 -->
+	<div class="scroll-box">
+		<!-- 标签切换区 -->
+		<ul class="scroll-tab clearfix">
+			<li class="scroll-item tab-active">第一篇</li>
+			<li class="scroll-item">第二篇</li>
+			<li class="scroll-item">第三篇</li>
+			<li class="scroll-item">第四篇</li>
+		</ul>
+		<!-- 滚动内容区 -->
+		<div class="scroll-wrap">
+			<!-- 滚动内容 -->
+			<div class="scroll-cont">
+				<h3 class="anchor">春天来了</h3>
+				<div class="scroll-ol">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi magni cumque sunt. Dolor fuga numquam nihil doloremque. Quas doloremque eum, accusantium </p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae corporis voluptatem veniam officiis at delectus, laudantium reiciendis, consequuntur labore reprehenderit ullam nihil blanditiis veritatis assumenda tempora. Esse nobis officiis, unde?</p>
+				</div>
+				<div class="scroll-ol">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi magni cumque sunt. Dolor fuga numquam nihil doloremque. Quas doloremque eum, accusantium </p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae corporis voluptatem veniam officiis at delectus, laudantium reiciendis, consequuntur labore reprehenderit ullam nihil blanditiis veritatis assumenda tempora. Esse nobis officiis, unde?</p>
+				</div>
+				<h3 class="anchor">秋天来了</h3>
+				<div class="scroll-ol">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi magni cumque sunt. Dolor fuga numquam nihil doloremque. Quas doloremque eum, accusantium </p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae corporis voluptatem veniam officiis at delectus, laudantium reiciendis, consequuntur labore reprehenderit ullam nihil blanditiis veritatis assumenda tempora. Esse nobis officiis, unde?</p>
+				</div>
+				<h3 class="anchor">冬天来了</h3>
+				<div class="scroll-ol">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi magni cumque sunt. Dolor fuga numquam nihil doloremque. Quas doloremque eum, accusantium </p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae corporis voluptatem veniam officiis at delectus, laudantium reiciendis, consequuntur labore reprehenderit ullam nihil blanditiis veritatis assumenda tempora. Esse nobis officiis, unde?</p>
+				</div>
+
+			</div>
+			<!-- 滚动条 -->
+			<div class="scroll-bar">
+				<!-- 滚动滑块 -->
+				<div class="scroll-slider"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		(function(win, doc, $){
+			// 定义的滚动条的构造函数
+			function CusScrollBar(options) {
+				// 函数的调用
+				this._init(options);
+			}
+			// 对象的合并
+			$.extend(CusScrollBar.prototype, {
+				_init: function(options){
+					// 闭包
+					var self = this;
+					// 初始化参数
+					self.options = {
+						scrollDir: 'Y', //滚动的方向
+						contentSelector: '', //滚动内容区选择器
+						barSelector: '', //滚动条选择器
+						sliderSelector: '' //滚动滑块选择器
+					}
+					// 覆盖参数
+					$.extend(true, self.options, options||{});
+					self._initDomEvent();
+					return self;
+				},
+
+				/**
+				 * 初始化DOM引用
+				 * @method _initDomEvent
+				 * @return {CusScrollBar}
+				 */
+				 _initDomEvent: function() {
+				 	var opts = this.options;
+				 	// 滚动内容区对象，必填项
+				 	this.$cont = $(opts.contentSelector);
+				 	// 滚动条滑块对象，必须项
+				 	this.$slider = $(opts.sliderSelector);
+				 	// 滚动条对象
+				 	this.$bar = opts.barSelector ? $(opts.barSelector) : self.$slider.parent();
+				 	// 获取文档对象
+				 	this.$doc = $(doc);
+				 	this._initSliderDragEvent();
+				 	this._bindContentScroll();
+
+				 },
+
+				 /**
+				  * 初始化滑块拖动功能
+				  * @return {[Object]} [this]
+				  */
+				_initSliderDragEvent: function() {
+					var self = this;
+					// 滑块元素
+					var slider = this.$slider,
+					    sliderEl = slider[0];
+					// 如果元素存在
+					if (sliderEl) {
+						var doc = this.$doc,
+						    dragStartPagePostion,
+						    dragStartScrollPostion,
+						    dragContBarRate;
+						function mousemoveHandler(e) {
+							e.preventDefault();
+							if (dragStartPagePostion == null) {
+
+								return;
+							}
+							self.scrollTo(dragStartScrollPostion + (e.pageY - dragStartPagePostion)*dragContBarRate);
+						}
+						slider.on('mousedown', function(e){
+							e.preventDefault();
+							// 获取鼠标的点击的开始位置
+							dragStartPagePostion = e.pageY;
+							console.log(dragStartPagePostion);
+							// 获取内容区域的向上卷区的高度
+							dragStartScrollPostion = self.$cont[0].scrollTop;
+							dragContBarRate = self.getMaxScrollPosition()/self.getMaxSliderPosition();
+							doc.on('mousemove.sroll', mousemoveHandler).on('mouseup.sroll',function(){
+								doc.off('.scroll');
+							});
+						});
+						return self;
+					}
+				},
+				// 监听内容的滚动，同步滑块的位置
+				_bindContentScroll: function() {
+					var self = this;
+					self.$cont.on('scroll', function(){
+						var sliderEl = self.$slider && self.$slider[0];
+						console.log(sliderEl);
+						if (sliderEl) {
+							console.log(2);
+							sliderEl.style.top = self.getSliderPosition() + 'px';
+						}
+					});
+					return self;
+				},
+				// 计算滑块的当前位置
+				getSliderPosition: function() {
+					var self = this,
+					    maxSliderPosition = self.getMaxSliderPosition();
+					return Math.min(maxSliderPosition, maxSliderPosition*self.$cont[0].scrollTop/getMaxScrollPosition());
+				},
+				// 内容可滚动的高度
+				getMaxScrollPosition: function() {
+					var self = this;
+					return Math.max(self.$cont.height(), self.$cont[0].scrollHeight) - self.$cont.height();
+				},
+				//滑块可移动的距离
+				getMaxSliderPosition: function(){
+					var self = this;
+					return self.$bar.height() - self.$slider.height();
+				},
+				// 内容的滑动
+				scrollTo: function(positonVal) {
+					var self = this;
+					self.$cont.scrollTop(positonVal);
+				}
+			});
+
+			win.CusScrollBar = CusScrollBar;
+		})(window,document,jQuery)
+		new CusScrollBar({
+			contentSelector: '.scroll-wrap', //滚动内容区选择器
+			barSelector: '.scroll-bar', //滚动条选择器
+			sliderSelector: '.scroll-slider' //滚动滑块选择器
+		});
+	</script>
+</body>
+</html>
