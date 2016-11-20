@@ -267,16 +267,50 @@ html, body {
     height: 100%;
     overflow: hidden;
 }
-.container {
+.container,.slider-wrapper, .slider {
     height: 100%;
     width: 100%;
 }
-.slider {
-    width: 100%;
-    height: 100%;
+.container {
+    position: relative;
+}
+.slider-wrapper {
+    position: absolute;
 }
 .slider img {
     width: 100%;
     height: 100%;
     vertical-align: top;
+}
+.page {
+   position: absolute;
+}
+.vertical.page{
+    right: 10px;
+    top: 50%;
+    margin-top: -50px;
+}
+.horizontal.page{
+    left: 50%;
+    bottom: 10px;
+    margin-left: -50px;
+}
+.page li{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    margin: 10px 5px;
+    cursor: pointer;
+}
+.horizontal.page li{
+    display: inline-block;
+    vertical-align: middle;
+}
+.page li.active{
+    width: 14px;
+    height: 14px;
+    border: 2px solid #FFFE00;
+    background: none;
+    margin-left: 0;
 }

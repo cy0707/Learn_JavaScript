@@ -4,12 +4,10 @@
 	<meta charset="UTF-8">
 	<title>全屏滚动</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="jquery-2.1.4.min.js"></script>
-	<script src="fullScroll.js"></script>
 </head>
 <body>
 	<!-- 容器 -->
-	<div class="container">
+	<div class="container" id="container">
 		<!-- 内容区域 -->
 			<div class="slider-wrapper">
 				<div class="slider">
@@ -30,5 +28,14 @@
 			</div>
 		<!-- 导航区域 -->
 	</div>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script src="fullScroll.js"></script>
+	<script>
+		$(function(){
+		$("#container").PageSwitch({
+			direction: 'horizontal'
+		});
+	})
+	</script>
 </body>
 </html>
