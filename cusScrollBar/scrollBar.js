@@ -52,10 +52,14 @@
 		 	this._bindContentScroll();
 		 	this._bindMousewheel();
 		 	this._initTabEvent();
+		 	this._initSliderHeight();
 
 		 },
+		 // 根据内容来定义滑块的高度
 		 _initSliderHeight: function() {
-		 	this.$cont
+		 	var rate = this.$cont.height()/this.$cont[0].scrollHeight;
+		 	var sliderHeight = rate*this.$bar.height();
+		 	this.$slider.css('height',sliderHeight);
 		 },
 		 /**
 		  * 初始化标签切换功能
