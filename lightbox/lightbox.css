@@ -1,0 +1,365 @@
+/*! normalize.css 开始*/
+html
+{
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+}
+
+body
+{
+    margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary
+{
+    display: block;
+}
+
+audio,
+canvas,
+progress,
+video
+{
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+audio:not([controls])
+{
+    display: none;
+    height: 0;
+}
+
+[hidden],
+template
+{
+    display: none;
+}
+
+a
+{
+    background: transparent;
+}
+
+a:active,
+a:hover
+{
+    outline: 0;
+}
+
+abbr[title]
+{
+    border-bottom: 1px dotted;
+}
+
+b,
+strong
+{
+    font-weight: bold;
+}
+
+dfn
+{
+    font-style: italic;
+}
+mark
+{
+    color: #000;
+    background: #ff0;
+}
+
+small
+{
+    font-size: 80%;
+}
+
+sub,
+sup
+{
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup
+{
+    top: -.5em;
+}
+
+sub
+{
+    bottom: -.25em;
+}
+
+img
+{
+    border: 0;
+}
+
+svg:not(:root)
+{
+    overflow: hidden;
+}
+
+figure
+{
+    margin: 1em 40px;
+}
+
+hr
+{
+    box-sizing: content-box;
+    height: 0;
+}
+
+pre
+{
+    overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp
+{
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea
+{
+    font: inherit;
+
+    margin: 0;
+
+    color: inherit;
+}
+
+button
+{
+    overflow: visible;
+}
+
+button,
+select
+{
+    text-transform: none;
+}
+
+button,
+html input[type='button'],
+input[type='reset'],
+input[type='submit']
+{
+    cursor: pointer;
+
+    -webkit-appearance: button;
+}
+
+button[disabled],
+html input[disabled]
+{
+    cursor: default;
+}
+
+input
+{
+    line-height: normal;
+}
+
+input[type='checkbox'],
+input[type='radio']
+{
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button
+{
+    height: auto;
+}
+
+input[type='search']
+{
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    -webkit-appearance: textfield;
+}
+
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration
+{
+    -webkit-appearance: none;
+}
+
+fieldset
+{
+    margin: 0 2px;
+    padding: .35em .625em .75em;
+    border: 1px solid #c0c0c0;
+}
+
+legend
+{
+    padding: 0;
+    border: 0;
+}
+
+textarea
+{
+    overflow: auto;
+}
+
+optgroup
+{
+    font-weight: bold;
+}
+
+table
+{
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td,
+th
+{
+    padding: 0;
+}
+.clearfix::after{
+    content: ".";
+    display: block;
+    height: 1px;
+    visibility: hidden;
+    clear: both;
+}
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+}
+/*! normalize.css 结束*/
+
+/*====== 首页 ======*/
+html, body {
+    width: 100%;
+    height: 100%;
+}
+/*遮罩*/
+.mask {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+}
+/*弹出层*/
+.pop-box {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1002;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.img-view {
+    background: url(images/loading.gif) no-repeat center;
+}
+.pop-img,.img-view {
+    width: 100%;
+    height: 100%;
+}
+/*左右箭头*/
+.arrow {
+   position: absolute; 
+   top: 50%;
+   z-index: 1004;
+   width: 50px;
+   height: 45px;
+   margin-top: -23px;
+   background: url(images/prev.png) no-repeat center/cover;
+   cursor: pointer;
+}
+.prev-arrow {
+    left: 0;
+}
+.next-arrow {
+    right: 0;
+    background-image: url(images/next.png);
+}
+/*关闭按钮*/
+.close-btn {
+    position: absolute;
+    right: -30px;
+    top: -30px;
+    width: 27px;
+    height: 27px;
+    background: url(images/close.png) no-repeat center/cover;
+    cursor: pointer;
+}
+.img-caption {
+    position: absolute;
+    left: 0px;
+    bottom: 10px;
+    width: 100%;
+    height: 50px;
+    padding: 0 10px;
+    background-color: #fff;
+}
+.img-caption p {
+    padding: 8px 0;
+    font: 16px/1.6;
+    font-weight: bold;
+}
+.img-caption .img-index {
+    font-size: 14px;
+    color: #666;
+}
+/*图片集*/
+.lightbox-box {
+    padding: 20px;
+    text-align: center;
+}
+.lightbox-box img{
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
