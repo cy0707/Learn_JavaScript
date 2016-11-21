@@ -301,7 +301,8 @@ html, body {
     background-color: #fff;
 }
 .img-view {
-    background: url(images/loading.gif) no-repeat center;
+    position: relative;
+    background: #fff url(images/loading.gif) no-repeat center;
 }
 .pop-img,.img-view {
     width: 100%;

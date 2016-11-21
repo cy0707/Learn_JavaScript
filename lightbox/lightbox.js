@@ -11,6 +11,7 @@
 		// 初始化弹出层,把各项所需的数据保存起来
 		this.renderUI();
 		this.imgView = this.popContent.find('.img-view'); //图片预览区
+		this.img = this.popContent.find('.img-view img'); //获取图片
 		this.imgCaption = this.popContent.find('.img-caption'); //图片说明文字
 		this.prevArrow = this.popContent.find('.prev-arrow'); //左箭头
 		this.nextArrow = this.popContent.find('.next-arrow'); //右箭头
@@ -76,7 +77,7 @@
 		preloadPop: function() {
 			var self = this;
 			//先出现一个白色的预加载loading框，其他的隐藏起来。
-			this.imgView.hide();
+			this.img.hide();
 			this.imgCaption.hide();
 			this.popMask.fadeIn();
 			// 获取可视区域的高宽
@@ -87,9 +88,12 @@
 				width: winWidth/2,
 				heiht: winheight/2 
 			});
-			// 
+			//弹出框显示
 			this.popContent.fadeIn();
-
+			this.popContent.css({
+				width: winWidth/2 + 20,
+				height: winheight/2 +20,
+			});
 		}	
 	};
 	$.fn.Lightbox = function(){
