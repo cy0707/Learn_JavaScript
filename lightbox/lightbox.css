@@ -282,7 +282,10 @@ html, body {
     z-index: 1000;
     width: 100%;
     height: 100%;
+    background-color: #000;
     background: rgba(0, 0, 0, .4);
+    /*兼容ie8*/
+    filter: alpha(opacity=40);
 }
 /*弹出层*/
 .pop-box {
@@ -293,8 +296,6 @@ html, body {
     top: 0;
     bottom: 0;
     z-index: 1002;
-    width: 400px;
-    height: 400px;
     margin: auto;
     padding: 10px;
     border-radius: 10px;
@@ -304,10 +305,6 @@ html, body {
     position: relative;
     background: #fff url(images/loading.gif) no-repeat center;
 }
-.pop-img,.img-view {
-    width: 100%;
-    height: 100%;
-}
 /*左右箭头*/
 .arrow {
    position: absolute; 
@@ -316,21 +313,27 @@ html, body {
    width: 50px;
    height: 45px;
    margin-top: -23px;
-   background: url(images/prev.png) no-repeat center/cover;
-   cursor: pointer;
+   background: url(images/transparent.png) repeat;
 }
 .prev-arrow {
     left: 0;
 }
 .next-arrow {
-    right: 0;
-    background-image: url(images/next.png);
+    right: 0;  
+}
+.prev-arrow-show {
+    cursor: pointer;
+    background: url(images/prev.png) no-repeat center;
+}
+.next-arrow-show {
+    cursor: pointer;
+    background: url(images/next.png) no-repeat center;
 }
 /*关闭按钮*/
 .close-btn {
     position: absolute;
-    right: -30px;
-    top: -30px;
+    right: 15px;
+    bottom: 20px;
     width: 27px;
     height: 27px;
     background: url(images/close.png) no-repeat center/cover;

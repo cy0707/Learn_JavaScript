@@ -4,6 +4,12 @@
 	<meta charset="UTF-8">
 	<title>JS插件开发之lightbox</title>
 	<link rel="stylesheet" type="text/css" href="lightbox.css">
+	<!--[if (gte IE 10)|!(IE)]><!-->
+    <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lte IE 9]>
+        <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <![endif]-->
 </head>
 <body>
 	<div>
@@ -26,7 +32,6 @@
 		<img src="images/2-1.jpg" data-role='lightbox' data-group='group-2' data-id='21' data-caption='第一组2-1' alt="第二组">
 		<img src="images/2-2.jpg" data-role='lightbox' data-group='group-2' data-id='22' data-caption='第一组2-2' alt="第二组">
 	</div>
-	<script src="jquery-2.1.4.min.js"></script>
 	<script src="lightbox.js"></script>
 </body>
 </html>
