@@ -1,0 +1,81 @@
+.container {
+	position: relative;
+	width: 1200px;
+	margin: 40px auto;
+}
+.banner-box {
+	height: 277px;
+}
+.banner-box li {
+	position: absolute;
+	top: 20px;
+	z-index: 1;
+	width: 667px;
+	overflow: hidden;
+	box-shadow: 8px 0px 16px 0px rgba(7, 17, 27, 0.2);
+}
+.banner-box li img{
+	display: block;
+	width: 100%;
+}
+/*初始状态*/
+.banner-box li:first-child{
+	left: 0;
+}
+.banner-box .box-current {
+	top: 0;
+	left: 17%;
+	z-index: 2;
+	width: 800px;
+	box-shadow: 12px 0px 24px 0px rgba(7, 17, 27, 0.4);
+}
+.banner-box li:last-child{
+	right: 0;
+}
+
+/*箭头*/
+.arrow {
+	position: absolute;
+	top: 26%;
+	height: 80px;
+	width: 40px;
+	z-index: 10;
+	cursor: pointer;
+	background: url(images/pre.png) no-repeat center;
+}
+.prev {
+	/*这个只用了一个图片，通过翻转*/
+	-webkit-transform: rotate(180deg);
+	   -moz-transform: rotate(180deg);
+	    -ms-transform: rotate(180deg);
+	     -o-transform: rotate(180deg);
+	        transform: rotate(180deg);
+}
+.next {
+	right: 0;
+}
+.arrow:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+/*分页器*/
+.pagination {
+	width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+.pagination li {
+	display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 8px;
+    background-color: #acafb3;
+    transition: all .2s;
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+.pagination .cur {
+	background-color: #fff;
+	border-color: #acafb3;
+}
