@@ -66,6 +66,8 @@
     		}
     		pageHtml += '</ul>';
     		this.wrapperBox.append(pageHtml);
+            // 初始化激活分页
+            $('.pagination li').eq(this.index).addClass(this.paginActive);
     		
     	},
     	// 初始化事件
@@ -79,6 +81,7 @@
     		this.wrapperBox.on('click', '.next', function(event) {
     			event.preventDefault();
     			self.nextEvent();
+               
     		});
     	},
     	// 左箭头事件
@@ -88,6 +91,7 @@
     		}else {
     			this.index = this.length-1;
     		}
+             console.log(this.index);
     		this.switch();
     	},
     	// 右箭头
@@ -108,8 +112,24 @@
     		}
     		// 对于滑动的进行布局
     		this.carrouselBox.find('li').removeClass(this.eleActive);
-    		this.carrouselBox.find('li').eq(this.index).addClass(this.eleActive);
+            if (this.index === this.length-1) {
+                // 主要问题是样式的覆盖问题
+                this.carrouselBox.find('li').eq(0).addClass(this.eleActive).css('left', '17%');
+                this.carrouselBox.find('li').eq(this.index-1).css('left', '533px');
+            }else if(this.index === 0 ){
+                this.carrouselBox.find('li').eq(this.index+1).addClass(this.eleActive).css('left', '17%');
+                this.carrouselBox.find('li').eq(this.length-1).css('left', '533px');
+
+            }else {
+                // index===1的情况
+                this.carrouselBox.find('li').eq(this.index+1).addClass(this.eleActive).css('left', '17%');
+                this.carrouselBox.find('li').eq(0).css('left', '533px');
+            }
+             this.carrouselBox.find('li').eq(this.index).css('left', '0');
     	}
+
+
+
     };
 
 	$.fn.Carrousel = function(options) {
@@ -117,6 +137,8 @@
 	};
 	
 })(jQuery)
+
+
 $(function(){
 	$('.container').Carrousel({
 		pagination: true
