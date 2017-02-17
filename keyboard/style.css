@@ -1,0 +1,123 @@
+	
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	padding-top: 40px;
+	background-color: #e6e6e6;
+	color: #303030;
+}
+/*商户区域*/
+.shop {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.title {
+	padding-left: 30px;
+	font-size: 16px;
+	line-height: 30px;
+	font-weight: normal;
+	background: url(logo.png) no-repeat left center/20px 20px;
+}
+/*光标区域*/
+.input-box {
+	margin-top: 30px;
+	padding: 15px 0 15px 10px;
+	border: 1px solid #9e9e9e;
+	border-radius: 6px;
+	background-color: #fff;
+}
+.input {
+	display: inline-block;
+	line-height: 16px;
+	text-align: right;
+	width: 70%;
+	padding-left: 20px;
+}
+.cursor {
+	display: none;
+	vertical-align: top;
+	margin-left: 4px;
+	height: 16px;
+	width: 1px;
+	background-color: #000;
+	animation: blink 1s infinite steps(1, start);
+}
+@keyframes blink {
+    0%, 100% {
+        background-color: #000;
+    }
+    50% {
+        background-color: #bbb; 
+    }
+}
+.support {
+	padding-top: 100px;
+	font-size: 13px;
+	line-height: 40px;
+	color: #b2b2b2;
+	text-align: center;
+}
+/*键盘区域*/
+.num-keyboard {
+	position: fixed;
+	bottom: -100px;
+	width: 100%;
+	transition: all .5s;
+}
+.num {
+	display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+.num-item, .num-sitem{
+	-webkit-box-flex: 1;
+	    -webkit-flex: 1;
+	    		flex: 1;
+	 font-size: 20px;
+	 line-height: 60px;
+	 text-align: center;
+	 background-color: #fff;
+	 color: #303030;
+	 border-top: 1px solid #939393;
+	 border-right: 1px solid #939393;
+}
+.num-sitem {
+	-webkit-box-flex: 2;
+	    -webkit-flex: 2;
+	    		flex: 2;
+}
+.num .sumbtn {
+	background-color: #8fcc8f;
+}
+.num .num-item:last-child {
+	border-right: 0;
+}
+.line {
+	border-top: 0;
+}
+.confirm {
+	position: relative;
+	line-height: 30px;
+	color: #fff;
+	border-top: 0;
+}
+.confirm input[type='submit'] {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+input[type='submit'] {
+	width: 100%;
+	height: 100%;
+	border: none;
+	color: transparent;
+	background: transparent;
+}
+input[type='submit']:focus {
+	outline: none;
+}
+.cancle {
+	background: #fff url(cancle.png) no-repeat center/37px 24px;
+}
