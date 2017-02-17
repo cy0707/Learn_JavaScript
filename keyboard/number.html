@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		body {
+			padding-top: 30px;
+			color: #303030;
+		}
+		.num {
+			display: -webkit-box;
+		    display: -webkit-flex;
+		    display: flex;
+		}
+		.num-item {
+			-webkit-box-flex: 1;
+			    -webkit-flex: 1;
+			    		flex: 1;
+			 padding: 14px 0;
+			 font-size: 20px;
+			 text-align: center;
+			 background-color: #f5f5f5;
+			 color: #303030;
+		}
+		.num {
+			border-top: 1px solid #bfbfbf;
+		}
+		.num .num-item:nth-child(2) {
+			border-left: 1px solid #bfbfbf;
+			border-right: 1px solid #bfbfbf;
+		}
+		.input {
+			display: block;
+			padding-left: 20px;
+			border-bottom: 1px solid #ccc;
+		}
+		.cursor {
+			display: none;
+			height: 20px;
+			width: 1px;
+			background-color: #000;
+			animation: blink 1s infinite steps(1, start);
+		}
+		@keyframes blink {
+		    0%, 100% {
+		        background-color: #000;
+		    }
+		    50% {
+		        background-color: #bbb; 
+		    }
+		}
+		.num-keyboard {
+			display: none;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="input">
+		<!-- 自定义光标 -->
+		<span class="cursor"></span>
+	</div>
+	<div class="num-keyboard">
+	    <div class="num">
+	    	<span class="num-item">1</span>
+	    	<span class="num-item">2</span>
+	    	<span class="num-item">3</span>
+	    </div>
+	    <div class="num">
+	    	<span class="num-item">4</span>
+	    	<span class="num-item">5</span>
+	    	<span class="num-item">6</span>
+	    </div>
+	    <div class="num">
+	    	<span class="num-item">7</span>
+	    	<span class="num-item">8</span>
+	    	<span class="num-item">9</span>
+	    </div>
+	    <div class="num">
+	    	<span class="num-item">.</span>
+	    	<span class="num-item">0</span>
+	    	<span class="num-item" id="cancle">x</span>
+	    </div>
+   </div>
+   <script src="number.js"></script>
+</body>
+</html>
