@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> Using object URLs to display images</title>
+</head>
+<body>
+	<input type="file" id="fileElem" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
+	<a href="#" id="fileSelect">Select some files</a> 
+	<div id="fileList">
+	  <p>No files selected!</p>
+	</div>
+	<script>
+
+		window.URL = window.URL || window.webkitURL;
+
+		var fileSelect = document.getElementById("fileSelect"),
+		    fileElem = document.getElementById("fileElem"),
+		    fileList = document.getElementById("fileList");
+
+		fileSelect.addEventListener("click", function (e) {
+			//如果文件存在的话,触发input的点击事件
+		  if (fileElem) {
+		    fileElem.click();
+		  }
+		  e.preventDefault(); // prevent navigation to "#"
+		}, false);
+
+		function handleFiles(files) {
+		  if (!files.length) {
+		  	// 如果没有选择文件，那么就提示没有选择文件
+		    fileList.innerHTML = "<p>No files selected!</p>";
+		  } else {
+		  	// 选择文件的话，先把提示的文件清空
+		    fileList.innerHTML = "";
+		    var list = document.createElement("ul");
+		    fileList.appendChild(list);
+		    for (var i = 0; i < files.length; i++) {
+		    	// 文件的个数有几个，创建几个li
+		      var li = document.createElement("li");
+		      list.appendChild(li);
+		      
+		      var img = document.createElement("img");
+		      // 获取这个图片的url
+		      img.src = window.URL.createObjectURL(files[i]);
+		      img.height = 60;
+		      img.onload = function() {
+		      	// 当图片文件加载完成，释放这个url
+		        window.URL.revokeObjectURL(this.src);
+		      }
+		      li.appendChild(img);
+		      var info = document.createElement("span");
+		      info.innerHTML = files[i].name + ": " + files[i].size + " bytes";
+		      li.appendChild(info);
+		    }
+		  }
+		}
+
+	</script>
+</body>
+</html>
