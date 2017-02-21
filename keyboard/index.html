@@ -5,49 +5,63 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div class="shop">
 	    <h2 class="title">成都金普惠科技有限公司</h2>
 	    <div class="input-box">
-	    	金额：
+            金额
 	    	<span class="input">
-	    	    <span class="cursor"></span>
-	    	    ￥
+                <span>￥</span>
+                <span class="input-num" id="input-num"></span>
+                <!-- 光标 -->
+                <span class="cursor"></span>
 	    	</span>
+            
 	    </div>
-	   
 	</div>
-    	<div class="num-keyboard">
+    	<div class="num-keyboard clearfix">
     		<p class="support">由成都金普惠科技提供技术支持</p>
-    	    <div class="num">
-    	    	<span class="num-item">1</span>
-    	    	<span class="num-item">2</span>
-    	    	<span class="num-item">3</span>
-    	    	<span class="num-item cancle" id="cancle"></span>
-    	    </div>
-    	    <div class="num">
-    	    	<span class="num-item">4</span>
-    	    	<span class="num-item">5</span>
-    	    	<span class="num-item">6</span>
-    	    	<span class="num-item sumbtn"><input type="submit" form="submit"></span>
-    	    </div>
-    	    <div class="num">
-    	    	<span class="num-item">7</span>
-    	    	<span class="num-item">8</span>
-    	    	<span class="num-item">9</span>
-    	    	<form class="num-item sumbtn confirm" id="submit" action="">
-    	    		确&nbsp;认<br/>支&nbsp;付
-    	    		<input type="hidden" id="sum">
-    	    		<input type="submit">
-    	    	</form>
-    	    </div>
-    	    <div class="num">
-    	    	<span class="num-sitem">0</span>
-    	    	<span class="num-item">.</span>
-    	    	<span class="num-item sumbtn line"><input type="submit" form="submit"></span>
-    	    </div>
+            <!-- 左边键盘 -->
+             <div class="num-box">
+                <div class="number-item clearfix">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                </div>
+                <div class="number-item clearfix">
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                </div>
+                <div class="number-item clearfix">
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                </div>
+                <div class="number-litem clearfix">
+                    <span>0</span>
+                    <span id="dot">.</span>
+                </div>
+             </div>
+             <!-- 右边操作 -->
+             <div class="handle-box">
+                 <div class="cancle" id="cancle"></div>
+                 <form action="">
+                     确认<br/>支付
+                      <input type="hidden" id="confirm-btn" value="">
+                     <input type="submit">
+                 </form>
+             </div>
+       </div>
+       <!-- 弹出框 -->
+       <div class="pop">
+        <div class="mask"></div>
+        <div class="pop-content">
+            <p>我是提示我是提示我是提示我是提示我是提示我是提示我是提示</p>
+            <div>确定</div>
+        </div>
        </div>
        <script src="number.js"></script>
 </body>

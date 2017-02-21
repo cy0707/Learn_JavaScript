@@ -1,48 +1,72 @@
-	
+
 * {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-tap-highlight-color:transparent;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
 }
 body {
-	padding-top: 40px;
-	background-color: #e6e6e6;
-	color: #303030;
+    padding-top: 40px;
+    background-color: #e6e6e6;
+    color: #303030;
+}
+.clearfix:after{
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
 }
 /*商户区域*/
 .shop {
-	padding-left: 20px;
-	padding-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .title {
-	padding-left: 30px;
-	font-size: 16px;
-	line-height: 30px;
-	font-weight: normal;
-	background: url(logo.png) no-repeat left center/20px 20px;
+    padding-left: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: normal;
+    background: url(logo.png) no-repeat left center/20px 20px;
 }
 /*光标区域*/
 .input-box {
-	margin-top: 30px;
-	padding: 15px 0 15px 10px;
-	border: 1px solid #9e9e9e;
-	border-radius: 6px;
-	background-color: #fff;
+    margin-top: 30px;
+    padding: 10px;
+    line-height: 36px;
+    border: 1px solid #9e9e9e;
+    border-radius: 6px;
+    background-color: #fff;
 }
 .input {
-	display: inline-block;
-	line-height: 16px;
-	text-align: right;
-	width: 70%;
-	padding-left: 20px;
+    display: inline-block;
+    width: 82%;
+    text-align: right;
+    vertical-align: top;
 }
-.cursor {
-	display: none;
-	vertical-align: top;
-	margin-left: 4px;
-	height: 16px;
-	width: 1px;
-	background-color: #000;
-	animation: blink 1s infinite steps(1, start);
+.input span {
+    font-size: 20px;
+    font-weight: normal;
+}
+.input .input-num {
+    font-size: 26px;
+}
+.input .cursor {
+    float: right;
+    display: none;
+    margin-top: 5px;
+    height: 26px;
+    width: 1px;
+    background-color: #000;
+    vertical-align: top;
+    animation: blink 1s infinite steps(1, start);
 }
 @keyframes blink {
     0%, 100% {
@@ -53,71 +77,146 @@ body {
     }
 }
 .support {
-	padding-top: 100px;
-	font-size: 13px;
-	line-height: 40px;
-	color: #b2b2b2;
-	text-align: center;
+    font-size: 13px;
+    line-height: 40px;
+    color: #b2b2b2;
+    text-align: center;
 }
+
 /*键盘区域*/
 .num-keyboard {
-	position: fixed;
-	bottom: -100px;
-	width: 100%;
-	transition: all .5s;
+    position: fixed;
+    bottom: -100px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: #303030;
+    -webkit-transform:translate3d(0,0,0);  
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d; 
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
-.num {
-	display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
+/*左边数字区域*/
+.num-box {
+    float: left;
+    width: 75%;
+    background-color: #fff;
 }
-.num-item, .num-sitem{
-	-webkit-box-flex: 1;
-	    -webkit-flex: 1;
-	    		flex: 1;
-	 font-size: 20px;
-	 line-height: 60px;
-	 text-align: center;
-	 background-color: #fff;
-	 color: #303030;
-	 border-top: 1px solid #939393;
-	 border-right: 1px solid #939393;
+.num-box span {
+     line-height: 64px;
+     height: 64px;
+     border-top: 1px solid #939393;
+     border-right: 1px solid #939393;
 }
-.num-sitem {
-	-webkit-box-flex: 2;
-	    -webkit-flex: 2;
-	    		flex: 2;
+.number-item span,
+.number-litem span:last-child{
+    float: left;
+    width: 33.3333334%;
 }
-.num .sumbtn {
-	background-color: #8fcc8f;
+.number-litem span:first-child{
+    float: left;
+    width: 66.6666667%;
 }
-.num .num-item:last-child {
-	border-right: 0;
-}
-.line {
-	border-top: 0;
-}
-.confirm {
-	position: relative;
-	line-height: 30px;
-	color: #fff;
-	border-top: 0;
-}
-.confirm input[type='submit'] {
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-input[type='submit'] {
-	width: 100%;
-	height: 100%;
-	border: none;
-	color: transparent;
-	background: transparent;
-}
-input[type='submit']:focus {
-	outline: none;
+.handle-box {
+    float: right;
+    width: 25%;
+    background-color: #fff;
 }
 .cancle {
-	background: #fff url(cancle.png) no-repeat center/37px 24px;
+    border-top: 1px solid #939393;
+    height: 64px;
+    background: #fff url(cancle.png) no-repeat center/37px 24px;
+}
+.handle-box form {
+    position: relative;
+    height: 192px;
+    padding: 72px 10px;
+    color: #fff;
+    border-top: 1px solid #939393;
+    background-color: #8fcc8f;
+}
+.handle-box input[type="submit"] {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    color: transparent;
+    background-color: transparent;
+    border: none;
+}
+
+/*弹出框*/
+.pop {
+    display: none;
+}
+.mask{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+.pop-content {
+    position: fixed;
+    z-index: 105;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin:auto;
+    width: 80%;
+    max-width: 300px;
+    height: 140px;
+    font-size: 16px;
+    color: #353535;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+.pop-content p {
+    padding: 1.6em 0.8em;
+    min-height: 40px;
+    font-size: 15px;
+    line-height: 1.3;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.pop-content div {
+    line-height: 48px;
+    font-size: 18px;
+    color: #0bb20c;
+    border-top: 1px solid #d5d5d6;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/*支付成功*/
+.icon-mark {
+    margin-top: -40px;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #fff;
+}
+.icon-mark img {
+    width: 49px;
+    height: 49px;
+}
+.icon-mark div {
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+}
+.order-msg {
+    margin-top: 14px;
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 36px;
+    color: #999;
+    background-color: #fff;
+}
+.order-msg span {
+    float: right;
+    color: #303030;
 }
