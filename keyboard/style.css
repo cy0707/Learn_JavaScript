@@ -11,11 +11,12 @@
     -moz-user-select:none;
     -ms-user-select:none;
     user-select:none;
+    font-family: 'Microsoft Yahei';
 }
 body {
     padding-top: 40px;
-    background-color: #e6e6e6;
     color: #303030;
+    background-color: #e6e6e6;
 }
 .clearfix:after{
     content: ".";
@@ -130,6 +131,8 @@ body {
 }
 .handle-box form {
     position: relative;
+    display: block;
+    width: 40px
     height: 192px;
     padding: 72px 10px;
     color: #fff;
@@ -144,6 +147,16 @@ body {
     background-color: transparent;
     border: none;
 }
+
+/*表单*/
+.success-form {
+    background-color: #1aad19;
+}
+
+.fail-form {
+    background-color: #8fcc8f
+}
+
 
 /*弹出框*/
 .pop {
@@ -219,4 +232,36 @@ body {
 .order-msg span {
     float: right;
     color: #303030;
+}
+
+/*提示页面*/
+.tip-body {
+    padding-top: 100px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.tip-body h2 {
+    padding-bottom: 20px;
+    font-size: 25px;
+    font-weight: normal;
+}
+.tip-body img {
+    display: block;
+    width: 120px;
+    margin: 0 auto;
+}
+.tip-body p:nth-child(3) {
+    padding-top: 28px;
+    font-size: 15px;
+    line-height: 26px;
+}
+.tip-body p:last-child {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    margin: 0 auto;
+    font-size: 13px;
+    color: #b2b2b2;
 }
