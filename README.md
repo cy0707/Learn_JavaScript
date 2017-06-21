@@ -56,6 +56,6 @@
 2017年就这样过去了半年,在学习了php、react.js、angular.js、vue.js、ES6以及最近学习的node.js
 越来越觉得,编程语言的思想是相同的，不同的是每一种语言的语法不同而已。每一种框架,最需要掌握
 是它的思想。继而熟悉其API,加以熟练应用到自己的项目中。虽然我还没达到那种能独立设计框架的能力
-但是或许将来的有一天能够呢。
+但是或许将来的有一天能够呢。毕竟
 
-毕竟 > Hope is a good thing, maybe the best of things, and no good thing ever dies
+> Hope is a good thing, maybe the best of things, and no good thing ever dies
